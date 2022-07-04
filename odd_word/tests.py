@@ -1,4 +1,4 @@
-import pytest
+from pytest import raises
 from odd_word import solution
 
 
@@ -15,16 +15,16 @@ class TestClass:
         return bool(counter) and not bool({k: v for k, v in counter.items() if v % 2 == 0})
 
     def test_argument_validation(self):
-        with pytest.raises(TypeError):
+        with raises(TypeError):
             solution("3")
 
-        with pytest.raises(ValueError):
+        with raises(ValueError):
             solution(-1)
 
-        with pytest.raises(ValueError):
+        with raises(ValueError):
             solution(0)
 
-        with pytest.raises(ValueError):
+        with raises(ValueError):
             solution(200001)
 
     def test_result(self):
